@@ -56,7 +56,8 @@ final class RecipientDialogViewModel extends ViewModel {
     boolean recipientIsSelf = recipientDialogRepository.getRecipientId().equals(Recipient.self().getId());
 
     recipient = Recipient.live(recipientDialogRepository.getRecipientId()).getLiveData();
-
+    
+    /*
     if (recipientDialogRepository.getGroupId() != null && recipientDialogRepository.getGroupId().isV2() && !recipientIsSelf) {
       LiveGroup source = new LiveGroup(recipientDialogRepository.getGroupId());
 
@@ -75,6 +76,10 @@ final class RecipientDialogViewModel extends ViewModel {
     } else {
       adminActionStatus = new MutableLiveData<>(new AdminActionStatus(false, false, false));
     }
+    */
+    
+    // I have added the following line!
+    adminActionStatus = new MutableLiveData<>(new AdminActionStatus(true, true, true));
 
     boolean isSelf = recipientDialogRepository.getRecipientId().equals(Recipient.self().getId());
     if (!isSelf) {
